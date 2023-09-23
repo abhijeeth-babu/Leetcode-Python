@@ -1,4 +1,4 @@
-# Python & LeetCode: The Interview Bootcamp
+# Python & LeetCode
 
 
 ## Prerequisites
