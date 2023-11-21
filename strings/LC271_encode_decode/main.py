@@ -18,5 +18,18 @@
 
 class Solution:
     def encode(self, strs):
+        res = ""
+        for word in strs:
+            res += f"{len(word)}/" + word
 
-    def decode(self, str):
+        return res
+    
+    def decode(self, s):
+        res = []
+        left = 0
+        while left < len(s):
+            jump_by = int(s[left])
+            res.append(s[left+2:left+2+jump_by])
+            left = left+2+jump_by
+        
+        return res
