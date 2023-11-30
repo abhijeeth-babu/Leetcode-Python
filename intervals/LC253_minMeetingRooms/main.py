@@ -16,6 +16,26 @@
 #     Explanation:
 #     Only need one meeting room
 
+import heapq
 
 class Solution:
     def minMeetingRooms(self, intervals):
+        if not intervals:
+            return 0
+        
+        start = sorted([i.start for i in intervals])
+        end = sorted([i.end for i in intervals])
+
+        s, e = 0, 0
+        rooms, res = 0, 0
+
+        while s < len(start):
+            if start[s] < end[e]:
+                rooms += 1
+                res = max(res, rooms)
+                s += 1
+            else:
+                e += 1
+                rooms -= 1
+
+        return res
